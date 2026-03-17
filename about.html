@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="dark" dir="rtl" lang="he">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>אודות | GRID Digital Agency</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+Hebrew:wght@300;400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/effects.css"/>
+<script>
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+        extend: {
+            colors: {
+                "primary": "#3b83f7",
+                "background-light": "#f5f7f8",
+                "background-dark": "#0A0A0F",
+            },
+            fontFamily: {
+                "display": ["Space Grotesk", "Noto Sans Hebrew", "sans-serif"]
+            },
+            borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+        },
+    },
+}
+</script>
+<style>
+body { font-family: 'Space Grotesk', 'Noto Sans Hebrew', sans-serif; min-height: 100dvh; }
+.grid-bg { background-image: linear-gradient(to right, rgba(59, 131, 247, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(59, 131, 247, 0.05) 1px, transparent 1px); background-size: 40px 40px; }
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased selection:bg-primary/30">
+<!-- Loading Screen -->
+<div class="loading-screen">
+    <span class="loading-logo">GRID</span>
+</div>
+<div class="noise-overlay"></div>
+<canvas id="particles-canvas"></canvas>
+<div class="glow-orb"></div>
+
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center gap-8">
+<a href="index.html" class="text-2xl font-bold tracking-tighter text-primary glitch-hover" data-text="GRID">GRID</a>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors nav-animated" href="services.html">שירותים</a>
+<a class="text-sm font-medium hover:text-primary transition-colors nav-animated" href="portfolio.html">פרויקטים</a>
+<a class="text-sm font-medium text-primary nav-animated" href="about.html">אודות</a>
+<a class="text-sm font-medium hover:text-primary transition-colors nav-animated" href="contact.html">צור קשר</a>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="md:hidden flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary border border-primary/20" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<a href="contact.html" class="hidden md:block bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded font-bold text-sm transition-all magnetic btn-shimmer">בואו נבנה</a>
+</div>
+</div>
+<div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-slate-800 mt-2 pt-4">
+<div class="flex flex-col gap-3">
+<a class="text-sm font-medium hover:text-primary transition-colors py-2" href="services.html">שירותים</a>
+<a class="text-sm font-medium hover:text-primary transition-colors py-2" href="portfolio.html">פרויקטים</a>
+<a class="text-sm font-medium text-primary py-2" href="about.html">אודות</a>
+<a class="text-sm font-medium hover:text-primary transition-colors py-2" href="contact.html">צור קשר</a>
+</div>
+</div>
+</div>
+</nav>
+
+<main class="flex-1 grid-bg">
+<!-- Hero Section -->
+<div class="relative bg-cover bg-center flex flex-col justify-end overflow-hidden min-h-[450px] border-b border-primary/20" style='background-image: linear-gradient(0deg, rgba(10, 10, 15, 0.9) 0%, rgba(10, 10, 15, 0.2) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCBVhj28lxRoIQglgVcYf5qXlCcYMxJ1y5qtFwhzsrGDthdKrA40-v7rr7huI9GdtStTIN170c3nghj8Qjsto94sQhNt2jlW5AdpVDYnYdT3FQl0N4-szQQdJoERjV6wXmUfNc_slcRa8BI4REnEtc3m7sptFAUIMgGqzAxsidEY-qA1r34sSJt3C1oQEztniL7tZH1VX7UPMpvvt08gCX6TFaYxYjUL1l12dpDv3MiqTy0UX7vjC3-lpmxODYMPIProiPaUMbDhX0");'>
+<div class="flex flex-col p-6 md:p-10 gap-2">
+<span class="text-primary font-bold tracking-widest text-sm uppercase">GRID Agency</span>
+<h1 class="text-white text-4xl md:text-6xl font-bold leading-tight gradient-text-animated"><span class="hero-word">יצירה</span> <span class="hero-word">דיגיטלית</span> <span class="hero-word">בסטנדרט</span> <span class="hero-word">אחר</span></h1>
+</div>
+</div>
+
+<!-- Philosophy Section -->
+<section class="px-6 py-16 max-w-4xl mx-auto">
+<div class="flex flex-col gap-6 reveal-up">
+<div class="flex items-center gap-3">
+<div class="h-[2px] w-12 bg-primary"></div>
+<span class="text-primary font-bold uppercase tracking-tighter">הפילוסופיה שלנו</span>
+</div>
+<h2 class="text-3xl md:text-4xl font-bold leading-tight heading-underline">עבודת יד, לא ייצור המוני</h2>
+<p class="text-slate-400 text-lg md:text-xl leading-relaxed">
+אנחנו מאמינים שכל פרויקט ראוי למגע אישי ודיוק של אומן. ב-GRID, אנחנו לא משכפלים פתרונות; אנחנו יוצרים חוויות דיגיטליות ייחודיות מאפס. הגישה שלנו משלבת הנדסה קפדנית עם עיצוב נועז, תוך דגש על הפרטים הקטנים ביותר שיוצרים את ההבדל הגדול.
+</p>
+</div>
+</section>
+
+<!-- Manifesto/Values -->
+<section class="bg-primary/5 border-y border-primary/10 py-20 px-6 relative">
+<span class="section-number-bg">01</span>
+<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
+<div class="p-8 glass-card rounded-xl reveal-up" data-tilt>
+<span class="material-symbols-outlined text-primary text-4xl mb-4 block icon-glow">diamond</span>
+<h3 class="text-xl font-bold mb-3">דיוק ללא פשרות</h3>
+<p class="text-slate-400">כל פיקסל וכל שורת קוד נבחנים בזכוכית מגדלת כדי להבטיח ביצועים מושלמים.</p>
+</div>
+<div class="p-8 glass-card rounded-xl reveal-up" data-tilt>
+<span class="material-symbols-outlined text-primary text-4xl mb-4 block icon-glow">bolt</span>
+<h3 class="text-xl font-bold mb-3">חדשנות טכנולוגית</h3>
+<p class="text-slate-400">אנחנו לא רק עוקבים אחרי טרנדים, אנחנו משתמשים בטכנולוגיות המתקדמות ביותר כדי להוביל אותם.</p>
+</div>
+<div class="p-8 glass-card rounded-xl reveal-up" data-tilt>
+<span class="material-symbols-outlined text-primary text-4xl mb-4 block icon-glow">group</span>
+<h3 class="text-xl font-bold mb-3">שותפות אמת</h3>
+<p class="text-slate-400">ההצלחה שלכם היא המדד היחיד שלנו. אנחנו עובדים איתכם שכם אל שכם לאורך כל הדרך.</p>
+</div>
+</div>
+</section>
+
+<!-- Team Section -->
+<section class="px-6 py-24 max-w-4xl mx-auto relative">
+<span class="section-number-bg">02</span>
+<div class="text-center mb-12 reveal-up">
+<h2 class="text-3xl md:text-5xl font-bold mb-4 heading-underline">הנבחרת שלנו</h2>
+</div>
+<div class="reveal-up glass-card rounded-xl p-10 md:p-14">
+<p class="text-slate-300 text-lg md:text-xl leading-relaxed text-right">הצוות שלנו מורכב מאנשי מקצוע מהשורה הראשונה, בהם בוגרי 8200 ויוצאי יחידות הדוברות, התקשורת והשיווק הבכירות בישראל. השילוב בין חשיבה אסטרטגית, יכולות ביצוע גבוהות, הבנה עמוקה של קהלים וניסיון בעולמות החדשנות, המיתוג וההשפעה הציבורית, מאפשר לנו לבנות עבור לקוחותינו פתרונות דיגיטליים מדויקים, חכמים ובעלי תוצאה.</p>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-background-dark border-t border-slate-800 pt-16 pb-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 reveal-up">
+<div class="col-span-1 md:col-span-2">
+<a href="index.html" class="text-3xl font-bold tracking-tighter text-primary mb-6 block glitch-hover" data-text="GRID">GRID</a>
+<p class="text-slate-400 max-w-sm">סוכנות דיגיטל בוטיק המתמחה בעיצוב, פיתוח וצמיחה של מותגים מובילים בעולם הטכנולוגי.</p>
+</div>
+<div>
+<h4 class="font-bold mb-6">ניווט</h4>
+<ul class="space-y-4 text-slate-400 text-sm">
+<li><a class="hover:text-primary transition-colors" href="services.html">שירותים</a></li>
+<li><a class="hover:text-primary transition-colors" href="portfolio.html">פרויקטים</a></li>
+<li><a class="hover:text-primary transition-colors" href="about.html">אודות</a></li>
+<li><a class="hover:text-primary transition-colors" href="contact.html">צור קשר</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6">עקבו אחרינו</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded border border-slate-800 flex items-center justify-center hover:bg-primary/10 hover:border-primary transition-all" href="#">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+</a>
+<a class="w-10 h-10 rounded border border-slate-800 flex items-center justify-center hover:bg-primary/10 hover:border-primary transition-all" href="#">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+</a>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+<p>© 2024 GRID Digital Agency. כל הזכויות שמורות.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">מדיניות פרטיות</a>
+<a class="hover:text-primary transition-colors" href="#">תנאי שימוש</a>
+</div>
+</div>
+</div>
+</footer>
+
+<!-- Mobile Bottom Nav -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 flex border-t border-slate-800 bg-background-dark/95 backdrop-blur-xl px-4 pb-6 pt-3">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-500 hover:text-primary transition-colors" href="index.html">
+<span class="material-symbols-outlined">home</span>
+<p class="text-[10px] font-bold">בית</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-500 hover:text-primary transition-colors" href="portfolio.html">
+<span class="material-symbols-outlined">work</span>
+<p class="text-[10px] font-bold">פרויקטים</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-500 hover:text-primary transition-colors" href="services.html">
+<span class="material-symbols-outlined">auto_awesome</span>
+<p class="text-[10px] font-bold">שירותים</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="about.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">info</span>
+<p class="text-[10px] font-bold">אודות</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-500 hover:text-primary transition-colors" href="contact.html">
+<span class="material-symbols-outlined">mail</span>
+<p class="text-[10px] font-bold">צור קשר</p>
+</a>
+</nav>
+
+<div class="h-20 md:hidden"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+<script src="js/effects.js"></script>
+</body>
+</html>
